@@ -17,8 +17,21 @@
 
     <main>
         <div class="btn-wrapper">
-            <button id="resetButton">Reset</button>
-            <button id="newGridButton">New Grid</button>
+
+            <button id="resetButton"><i class="fa-solid fa-power-off off-icon"></i></button>
+        
+            <div class="grid-wrapper">
+                <div class="range-wrapper">
+                    <span>0</span>
+                    <input type="range" id="rangeInput" min="1" max="100" value="16">
+                    <span id="rangeValue">16</span>
+                </div>
+                <button id="newGridButton">Change Grid</button>
+            </div>
+
+           
+
+
         </div>
 
         <div class="container">

@@ -1,8 +1,15 @@
 // GLOBAL SCOPE
 const container = document.querySelector('.container');
 const resetButton = document.getElementById('resetButton');
+const rangeInput = document.getElementById('rangeInput');
 const newGridButton = document.getElementById('newGridButton');
 let squaresPerSide = 16; // Initial value
+
+
+// Update the range value display
+rangeInput.addEventListener('input', function() {
+    rangeValue.textContent = rangeInput.value;
+  });
 
 // Function to reset the hover effect
 function resetHoverEffect() {
@@ -46,14 +53,14 @@ resetButton.addEventListener('click', function() {
   resetHoverEffect();
 });
 
-// NEW GRID BUTTON
+
+// Event listener for the new grid button
 newGridButton.addEventListener('click', function() {
-  const userInput = prompt('Enter the number of squares per side (maximum: 100):');
-  const newSquaresPerSide = parseInt(userInput);
+    const newSquaresPerSide = parseInt(rangeInput.value);
   
-  if (userInput !== null && !isNaN(newSquaresPerSide) && newSquaresPerSide > 0 && newSquaresPerSide <= 100) {
-    createNewGrid(newSquaresPerSide);
-  } else {
-    alert('Invalid input. Please enter a number between 1 and 100.');
-  }
-});
+    if (!isNaN(newSquaresPerSide) && newSquaresPerSide >= 1 && newSquaresPerSide <= 100) {
+      createNewGrid(newSquaresPerSide);
+    } else {
+      alert('Invalid input. Please select a number between 1 and 100.');
+    }
+  });
